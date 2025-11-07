@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工具信息页面</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .tool-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .tool-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        
+        /* 顶部返回按钮样式 */
+        .top-back-button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.2s;
+        }
+        
+        .top-back-button:hover {
+            background-color: #5a6268;
+            transform: scale(1.1);
+        }
+        
+        /* 底部返回按钮样式 */
+        .bottom-back-button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 20px;
+            transition: all 0.2s;
+        }
+        
+        .bottom-back-button:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* 顶部信息栏样式 */
+        .top-header {
+            background-color: #f8f9fa;
+            padding: 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部信息栏 -->
+    <div class="top-header sticky-top">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <button class="top-back-button" id="backButton" title="返回部门导航">
+                        <span>←</span>
+                    </button>
+                    <h5 class="mb-0">工具详情</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
+                        <li class="breadcrumb-item"><a href="/views/tools.html">部门导航</a></li>
+                        <li class="breadcrumb-item active" id="departmentBreadcrumb">部门信息</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 mb-3" id="pageTitle">工具信息</h1>
+                <p class="lead" id="pageDescription">工具详细信息页面</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">部门信息</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>部门名称:</h6>
+                                <p id="departmentName">-</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>访问时间:</h6>
+                                <p id="accessTime">-</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h6>工具信息:</h6>
+                                <div id="toolInfo">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">加载中...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button class="btn bottom-back-button" id="bottomBackButton">
+                    <span>← 返回部门导航</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 获取URL参数
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(window.location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // 从本地加载JSON数据
+        async function loadJsonData(filePath) {
+            try {
+                const response = await fetch(`/${filePath}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                throw error;
+            }
+        }
+
+        // 加载工具详细信息
+        async function loadToolDetails(departmentKey, toolName) {
+            try {
+                // 加载配置文件
+                const config = await loadJsonData('data/config.json');
+                
+                // 获取对应的文件路径
+                const dataFile = config.departments[departmentKey];
+                if (!dataFile) {
+                    throw new Error('无效的部门标识');
+                }
+                
+                // 加载数据文件
+                const data = await loadJsonData(dataFile);
+                
+                // 查找匹配的工具
+                const tool = data.items.find(item => item.name === toolName);
+                
+                if (!tool) {
+                    throw new Error('未找到指定的工具信息');
+                }
+                
+                // 显示工具详细信息
+                document.getElementById('toolInfo').innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>工具名称:</strong> ${tool.name}</p>
+                            <p><strong>工具分类:</strong> ${tool.category}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>访问地址:</strong> <a href="${tool.url}" target="_blank">${tool.url}</a></p>
+                            <p><strong>状态:</strong> <span class="badge bg-success">可用</span></p>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p><strong>工具描述:</strong> ${tool.description}</p>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('加载工具详细信息失败:', error);
+                document.getElementById('toolInfo').innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4 class="alert-heading">加载失败</h4>
+                        <p>${error.message}</p>
+                        <hr>
+                        <p class="mb-0">请稍后重试或联系系统管理员。</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取工具名称参数
+            const toolName = getUrlParameter('tool') || '未指定工具';
+            
+            // 从sessionStorage获取部门key，如果没有则默认为it
+            const departmentKey = sessionStorage.getItem('currentDepartment') || 'it';
+            
+            // 加载配置文件获取部门名称
+            loadJsonData('data/config.json').then(config => {
+                const departmentNames = {
+                    'it': 'IT部门',
+                    'hr': 'HR部门'
+                };
+                
+                // 如果配置文件中有部门名称映射，则使用配置文件中的
+                if (config.titles && config.titles[departmentKey]) {
+                    departmentNames[departmentKey] = config.titles[departmentKey].replace('工具导航', '');
+                }
+                
+                const departmentName = departmentNames[departmentKey] || '未知部门';
+                
+                // 更新页面信息
+                document.getElementById('departmentBreadcrumb').textContent = departmentName;
+                document.getElementById('pageTitle').textContent = `${departmentName} - ${toolName}`;
+                document.getElementById('pageDescription').textContent = `您正在查看 ${departmentName} 的 ${toolName} 工具信息`;
+                document.getElementById('departmentName').textContent = departmentName;
+                document.getElementById('accessTime').textContent = new Date().toLocaleString('zh-CN');
+                
+                // 为返回按钮添加点击事件
+                const backButtonUrl = `/views/tools.html?dept=${departmentKey}`;
+                document.getElementById('backButton').addEventListener('click', function() {
+                    window.location.href = backButtonUrl;
+                });
+                document.getElementById('bottomBackButton').addEventListener('click', function() {
+                    window.location.href = backButtonUrl;
+                });
+                
+                // 加载工具详细信息
+                loadToolDetails(departmentKey, toolName);
+            }).catch(error => {
+                console.error('加载配置文件失败:', error);
+                // 使用默认值
+                const departmentName = departmentKey === 'it' ? 'IT部门' : departmentKey === 'hr' ? 'HR部门' : '未知部门';
+                
+                // 更新页面信息
+                document.getElementById('departmentBreadcrumb').textContent = departmentName;
+                document.getElementById('pageTitle').textContent = `${departmentName} - ${toolName}`;
+                document.getElementById('pageDescription').textContent = `您正在查看 ${departmentName} 的 ${toolName} 工具信息`;
+                document.getElementById('departmentName').textContent = departmentName;
+                document.getElementById('accessTime').textContent = new Date().toLocaleString('zh-CN');
+                
+                // 为返回按钮添加点击事件
+                const backButtonUrl = `/views/tools.html?dept=${departmentKey}`;
+                document.getElementById('backButton').addEventListener('click', function() {
+                    window.location.href = backButtonUrl;
+                });
+                document.getElementById('bottomBackButton').addEventListener('click', function() {
+                    window.location.href = backButtonUrl;
+                });
+                
+                // 加载工具详细信息
+                loadToolDetails(departmentKey, toolName);
+            });
+        });
+    </script>
+</body>
+</html>

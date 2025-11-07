@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航页面</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .nav-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            height: 100%;
+        }
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .nav-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 mb-3">部门工具导航</h1>
+                <p class="lead">请选择您所属的部门以访问相关工具</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center" id="departmentsContainer">
+            <!-- 部门卡片将通过JavaScript动态生成 -->
+            <div class="col-12 text-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">加载中...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 从本地加载JSON数据
+        async function loadJsonData(filePath) {
+            try {
+                const response = await fetch(`/${filePath}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                throw error;
+            }
+        }
+        
+        // 从服务器获取配置
+        async function getConfig() {
+            try {
+                const config = await loadJsonData('data/config.json');
+                return config;
+            } catch (error) {
+                console.error('加载配置文件失败:', error);
+                // 不返回默认值，而是返回null
+                return null;
+            }
+        }
+        
+        // 加载部门数据并渲染
+        async function loadAndRenderDepartments() {
+            try {
+                const config = await getConfig();
+                
+                // 如果配置为空，显示错误信息
+                if (!config) {
+                    document.getElementById('departmentsContainer').innerHTML = `
+                        <div class="col-12">
+                            <div class="alert alert-danger">
+                                <h4 class="alert-heading">配置加载失败</h4>
+                                <p>无法加载部门配置文件，请检查网络连接或配置文件是否存在。</p>
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const container = document.getElementById('departmentsContainer');
+                
+                // 清空容器
+                container.innerHTML = '';
+                
+                // 为每个部门创建卡片
+                for (const [key, filePath] of Object.entries(config.departments)) {
+                    // 获取部门信息
+                    const title = config.titles[key] || key;
+                    const icon = config.icons[key] || '🔧';
+                    const description = config.descriptions[key] || '部门相关工具';
+                    
+                    // 创建部门卡片
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6 col-lg-4 mb-4';
+                    col.innerHTML = `
+                        <div class="card nav-card" data-key="${key}">
+                            <div class="card-body text-center">
+                                <div class="nav-icon">${icon}</div>
+                                <h5 class="card-title">${title.replace('工具导航', '')}</h5>
+                                <p class="card-text">${description}</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 添加点击事件
+                    col.querySelector('.nav-card').addEventListener('click', () => {
+                        selectDepartment(key);
+                    });
+                    
+                    container.appendChild(col);
+                }
+                
+                // 添加"更多部门"卡片
+                const moreCol = document.createElement('div');
+                moreCol.className = 'col-md-6 col-lg-4 mb-4';
+                moreCol.innerHTML = `
+                    <div class="card nav-card">
+                        <div class="card-body text-center">
+                            <div class="nav-icon">🔧</div>
+                            <h5 class="card-title">更多部门</h5>
+                            <p class="card-text">敬请期待更多部门工具</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(moreCol);
+            } catch (error) {
+                console.error('加载部门数据失败:', error);
+                document.getElementById('departmentsContainer').innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-danger">
+                            <h4 class="alert-heading">加载失败</h4>
+                            <p>无法加载部门数据，请检查网络连接或配置文件。</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // 选择部门并跳转到工具页面
+        function selectDepartment(deptKey) {
+            // 清除之前的部门信息
+            sessionStorage.removeItem('currentDepartment');
+            // 跳转到工具页面
+            window.location.href = `/views/tools.html?dept=${deptKey}`;
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 加载并渲染部门
+            loadAndRenderDepartments();
+        });
+    </script>
+</body>
+</html>
