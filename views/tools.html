@@ -293,7 +293,7 @@
                     toolElement.addEventListener('click', function() {
                         // 保存部门信息到sessionStorage
                         sessionStorage.setItem('currentDepartment', departmentKey);
-                        window.location.href = '/views/info.html?tool=' + encodeURIComponent(item.name);
+                        window.location.href = './info.html?tool=' + encodeURIComponent(item.name);
                     });
                     
                     toolsList.appendChild(toolElement);
@@ -315,7 +315,7 @@
             
             // 为返回按钮添加点击事件
             document.getElementById('backButton').addEventListener('click', function() {
-                window.location.href = '/index.html';
+                window.location.href = '../index.html';
             });
             
             // 加载配置和工具数据

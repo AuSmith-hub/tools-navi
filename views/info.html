@@ -87,8 +87,8 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/index.html">首页</a></li>
-                        <li class="breadcrumb-item"><a href="/views/tools.html">部门导航</a></li>
+                        <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+                        <li class="breadcrumb-item"><a href="./tools.html">部门导航</a></li>
                         <li class="breadcrumb-item active" id="departmentBreadcrumb">部门信息</li>
                     </ol>
                 </nav>
@@ -258,7 +258,7 @@
                 document.getElementById('departmentName').textContent = departmentName;
                 
                 // 为返回按钮添加点击事件
-                const backButtonUrl = `/views/tools.html?dept=${departmentKey}`;
+                const backButtonUrl = `./tools.html?dept=${departmentKey}`;
                 document.getElementById('backButton').addEventListener('click', function() {
                     window.location.href = backButtonUrl;
                 });
@@ -286,7 +286,7 @@
                 document.getElementById('departmentName').textContent = departmentName;
                 
                 // 为返回按钮添加点击事件
-                const backButtonUrl = `/views/tools.html?dept=${departmentKey}`;
+                const backButtonUrl = `./tools.html?dept=${departmentKey}`;
                 document.getElementById('backButton').addEventListener('click', function() {
                     window.location.href = backButtonUrl;
                 });
