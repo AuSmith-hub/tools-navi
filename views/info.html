@@ -114,10 +114,6 @@
                                 <h6>部门名称:</h6>
                                 <p id="departmentName">-</p>
                             </div>
-                            <div class="col-md-6">
-                                <h6>访问时间:</h6>
-                                <p id="accessTime">-</p>
-                            </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12">
@@ -160,7 +156,7 @@
         // 从本地加载JSON数据
         async function loadJsonData(filePath) {
             try {
-                const response = await fetch(`/${filePath}`);
+                const response = await fetch(filePath);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -175,7 +171,7 @@
         async function loadToolDetails(departmentKey, toolName) {
             try {
                 // 加载配置文件
-                const config = await loadJsonData('data/config.json');
+                const config = await loadJsonData('../data/config.json');
                 
                 // 获取对应的文件路径
                 const dataFile = config.departments[departmentKey];
@@ -184,7 +180,7 @@
                 }
                 
                 // 加载数据文件
-                const data = await loadJsonData(dataFile);
+                const data = await loadJsonData(`../${dataFile}`);
                 
                 // 查找匹配的工具
                 const tool = data.items.find(item => item.name === toolName);

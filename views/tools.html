@@ -195,7 +195,7 @@
         // 从本地加载JSON数据
         async function loadJsonData(filePath) {
             try {
-                const response = await fetch(`/${filePath}`);
+                const response = await fetch(filePath);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -210,7 +210,7 @@
         async function loadConfigAndToolsData(departmentKey) {
             try {
                 // 加载配置文件
-                const config = await loadJsonData('data/config.json');
+                const config = await loadJsonData('../data/config.json');
                 
                 // 获取对应的文件路径
                 const dataFile = config.departments[departmentKey];
@@ -219,7 +219,7 @@
                 }
                 
                 // 加载数据文件
-                const data = await loadJsonData(dataFile);
+                const data = await loadJsonData(`../${dataFile}`);
                 
                 // 更新页面标题和描述
                 const title = config.titles[departmentKey] || data.title || '部门工具导航';

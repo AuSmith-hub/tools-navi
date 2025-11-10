@@ -51,7 +51,7 @@
         // 从本地加载JSON数据
         async function loadJsonData(filePath) {
             try {
-                const response = await fetch(`/${filePath}`);
+                const response = await fetch(filePath);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -65,7 +65,7 @@
         // 从服务器获取配置
         async function getConfig() {
             try {
-                const config = await loadJsonData('data/config.json');
+                const config = await loadJsonData('./data/config.json');
                 return config;
             } catch (error) {
                 console.error('加载配置文件失败:', error);
