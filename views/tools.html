@@ -301,12 +301,13 @@
             });
         }
 
+        
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 从URL参数获取部门key，如果没有则从sessionStorage获取
             let departmentKey = getUrlParameter('dept');
             if (!departmentKey) {
-                departmentKey = sessionStorage.getItem('currentDepartment') || 'it';
+                departmentKey = sessionStorage.getItem('currentDepartment') || 'msc';
             } else {
                 // 保存部门信息到sessionStorage
                 sessionStorage.setItem('currentDepartment', departmentKey);

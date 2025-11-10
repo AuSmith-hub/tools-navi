@@ -1,0 +1,28 @@
+{
+  "title": "MKT部门工具导航",
+  "description": "市场部门常用工具和资源导航",
+  "items": [
+    {
+      "id": 1,
+      "name": "Social Management Platform",
+      "url": "https://socialmgt.emdlz.com.cn/login",
+      "description": "社媒管理平台，社媒营销活动策划/运营/追踪管理/风险管理，驱动社媒营销数据洞察与效度提升",
+      "category": "MKT",
+      "audienceDepartments": "Marketing",
+      "audienceDetails": "MKT\nCX",
+      "permissionGuide": "Step 1 - Line manager邮件审批，包含部门+所需权限\nStep 2 - 将Line manager审批邮件转发给Peggy.du@mdlz.com\n不同部门的权限不同且涉及审批流，邮件请写明自己部门 - 品牌 - 产品线，如有必要可以说明自己需要与谁相同的权限（如自己的部门某同事）",
+      "icon": "📱"
+    },
+    {
+      "id": 2,
+      "name": "EC Navigator",
+      "url": "https://app.powerbi.com/groups/me/apps/ba712e9d-03cd-4d82-a4f2-6858eeee7705/reports/5128cc9c-04c3-4717-b12f-0ed138e24a7d/e08d578d5a8d1c850c70?ctid=18a01ad8-9727-498a-a47d-17374c6fd9f7&experience=power-bi&language=en-US",
+      "description": "五大电商平台的业绩集成看板，可以进一步分析运营指标，如流量、转化、客单价、复购、履约等，快速定位短板并采取优化行动。",
+      "category": "MKT",
+      "audienceDepartments": "Sales\nFinance\nMarketing",
+      "audienceDetails": "MKT\nFinance\nSales-EC",
+      "permissionGuide": "系统部署在PowerBI上，权限统一配置，无需登录直接可用，如发现无权限，可申请\nStep 1 - Line manager邮件审批，包含部门+所需权限\nStep 2 - 将Line manager审批邮件转发给对应业务对接人\nEC 对接人edward.yu@mdlz.com\nEC 以外对接人Peggy.du@mdlz.com",
+      "icon": "🛒"
+    }
+  ]
+}

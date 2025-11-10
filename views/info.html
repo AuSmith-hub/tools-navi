@@ -199,13 +199,21 @@
                         <div class="col-md-6">
                             <p><strong>工具名称:</strong> ${tool.name}</p>
                             <p><strong>工具分类:</strong> ${tool.category}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>访问地址:</strong> <a href="${tool.url}" target="_blank">${tool.url}</a></p>
+                            <p><strong>访问地址:</strong> ${tool.url ? `<a href="${tool.url}" target="_blank">${tool.url}</a>` : '无'}</p>
                             <p><strong>状态:</strong> <span class="badge bg-success">可用</span></p>
                         </div>
+                        <div class="col-md-6">
+                            <p><strong>所属部门:</strong> ${departmentKey.toUpperCase()}</p>
+                            <p><strong>受众部门:</strong> ${tool.audienceDepartments || '未指定'}</p>
+                            <p><strong>受众对象:</strong> ${tool.audienceDetails || '未指定'}</p>
+                        </div>
                         <div class="col-12 mt-3">
-                            <p><strong>工具描述:</strong> ${tool.description}</p>
+                            <p><strong>功能介绍:</strong></p>
+                            <p>${tool.description}</p>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p><strong>权限申请指南:</strong></p>
+                            <p>${tool.permissionGuide || '无特殊要求'}</p>
                         </div>
                     </div>
                 `;
@@ -233,8 +241,11 @@
             // 加载配置文件获取部门名称
             loadJsonData('data/config.json').then(config => {
                 const departmentNames = {
-                    'it': 'IT部门',
-                    'hr': 'HR部门'
+                    'msc': 'MSC部门',
+                    'fin': '财务部门',
+                    'mkt': '市场部门',
+                    'people': '人事部门',
+                    'sales': '销售部门'
                 };
                 
                 // 如果配置文件中有部门名称映射，则使用配置文件中的
@@ -249,7 +260,6 @@
                 document.getElementById('pageTitle').textContent = `${departmentName} - ${toolName}`;
                 document.getElementById('pageDescription').textContent = `您正在查看 ${departmentName} 的 ${toolName} 工具信息`;
                 document.getElementById('departmentName').textContent = departmentName;
-                document.getElementById('accessTime').textContent = new Date().toLocaleString('zh-CN');
                 
                 // 为返回按钮添加点击事件
                 const backButtonUrl = `/views/tools.html?dept=${departmentKey}`;
@@ -265,14 +275,19 @@
             }).catch(error => {
                 console.error('加载配置文件失败:', error);
                 // 使用默认值
-                const departmentName = departmentKey === 'it' ? 'IT部门' : departmentKey === 'hr' ? 'HR部门' : '未知部门';
+                const departmentNames = {
+                    'msc': 'MSC部门',
+                    'fin': 'FIN部门',
+                    'mkt': 'MKT部门',
+                    'people': 'People Team部门'
+                };
+                const departmentName = departmentNames[departmentKey] || '未知部门';
                 
                 // 更新页面信息
                 document.getElementById('departmentBreadcrumb').textContent = departmentName;
                 document.getElementById('pageTitle').textContent = `${departmentName} - ${toolName}`;
                 document.getElementById('pageDescription').textContent = `您正在查看 ${departmentName} 的 ${toolName} 工具信息`;
                 document.getElementById('departmentName').textContent = departmentName;
-                document.getElementById('accessTime').textContent = new Date().toLocaleString('zh-CN');
                 
                 // 为返回按钮添加点击事件
                 const backButtonUrl = `/views/tools.html?dept=${departmentKey}`;

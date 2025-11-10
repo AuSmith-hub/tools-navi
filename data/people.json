@@ -1,0 +1,61 @@
+{
+  "title": "People Team部门工具导航",
+  "description": "人事部门常用工具和资源导航",
+  "items": [
+    {
+      "id": 1,
+      "name": "员工中心（Employee Center）",
+      "url": "https://mdlz.service-now.com/hrportal",
+      "description": "一站式自助查询平台，可搜索公司政策、学习与发展、工资发放、招聘、入职、在职证明等信息。",
+      "category": "People Team",
+      "audienceDepartments": "Sales\nMSC\nFinance\nPeople team\nMarketing\nLegal\nRDQ\nCGA\nIT",
+      "audienceDetails": "For all",
+      "permissionGuide": "登录名及密码： 配备公司电脑的员工，登录名是公司邮箱，密码是开机密码；\n不配备公司电脑的员工，登录名是LAN-ID@MDLZ.com；密码是LAN-ID",
+      "icon": "👥"
+    },
+    {
+      "id": 2,
+      "name": "Workday",
+      "url": "https://wd3.myworkday.com/mdlz/d/home.htmld",
+      "description": "管理个人信息及工作记录的平台，支持查看/更新个人信息、组织架构、绩效管理、申请内部职位、进入培训平台等。\n1) 作为员工：修改个人数据、管理个人目标、完成绩效回顾、进行课程学习等。\n2) 作为经理：查看下属信息、发起和审批下属工作变动流程等。",
+      "category": "People Team",
+      "audienceDepartments": "Sales\nMSC\nFinance\nPeople team\nMarketing\nLegal\nRDQ\nCGA\nIT",
+      "audienceDetails": "For all",
+      "permissionGuide": "登录名及密码： 配备公司电脑的员工，登录名是公司邮箱，密码是开机密码；\n不配备公司电脑的员工，登录名是LAN-ID@MDLZ.com；密码是LAN-ID",
+      "icon": "💼"
+    },
+    {
+      "id": 3,
+      "name": "One Portal",
+      "url": "https://www.emdlz.com.cn/OnePortal.aspx",
+      "description": "集成多个系统的统一入口，包括：报销系统（CONCUR）、销售数据平台（SFA 和ATOM 销售系统等）、工资查询、请假与假期查询（ESS平台）等。",
+      "category": "People Team",
+      "audienceDepartments": "Sales\nMSC\nFinance\nPeople team\nMarketing\nLegal\nRDQ\nCGA\nIT",
+      "audienceDetails": "For all",
+      "permissionGuide": "One Portal用户名：若您拥有亿滋邮箱，请使用您的LAN ID登录；若您没有亿滋邮箱，请使用员工号（数字）登陆。\nOne Portal密码：您的公司邮箱会收到One Portal初始密码(发件邮箱：sso01@emdlzcn.com）\n如在登录过程中遇到问题，请联系热线4008105900或邮箱\nAPPL1.ChinaSupport@mdlz.com寻求帮助。",
+      "icon": "🚪"
+    },
+    {
+      "id": 4,
+      "name": "Jobs@MDLZ",
+      "url": "https://wd3.myworkday.com/mdlz/d/task/1422$133.htmld",
+      "description": "内部职位发布平台，支持员工查看全球范围内空缺职位，也供经理发布岗位。候选人资格等细节参考《员工推荐计划政策》及MDLZ Magnet推荐计划。",
+      "category": "People Team",
+      "audienceDepartments": "Sales\nMSC\nFinance\nPeople team\nMarketing\nLegal\nRDQ\nCGA\nIT",
+      "audienceDetails": "For all",
+      "permissionGuide": "登录名及密码： 配备公司电脑的员工，登录名是公司邮箱，密码是开机密码；\n不配备公司电脑的员工，登录名是LAN-ID@MDLZ.com；密码是LAN-ID",
+      "icon": "🔍"
+    },
+    {
+      "id": 5,
+      "name": "WeCom Together 亿站通",
+      "url": "企业微信APP",
+      "description": "\"亿站通\"整合了多个亿滋全球和中国的人力资源信息和服务系统，致力于为亿滋中国员工提供一个方便、高效、友善的员工体验平台。员工可以通过企业微信，在全新的\"亿站通\"平台中一键登录新的员工自助服务模块，包括工资单查询、休假申请/审批、健康和福祉。我们还整合了全球员工中心和Workday的入口，更加方便员工进行登录操作。员工还可以在\"亿站通\"上找到多元包容平等，以及成长每一天学习资源等其他的板块。",
+      "category": "People Team",
+      "audienceDepartments": "Sales\nMSC\nFinance\nPeople team\nMarketing\nLegal\nRDQ\nCGA\nIT",
+      "audienceDetails": "For all",
+      "permissionGuide": "登录名及密码： 配备公司电脑的员工，登录名是公司邮箱，密码是开机密码；\n不配备公司电脑的员工，登录名是LAN-ID@MDLZ.com；密码是LAN-ID\n进入\"企业微信\"APP，注册成为\"亿滋企微\"成员\n选择企业微信\"工作台\"模块-点击\" 亿站通WeCom Together\"进入页面",
+      "icon": "💬"
+    }
+  ]
+}

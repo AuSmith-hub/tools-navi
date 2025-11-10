@@ -1,0 +1,72 @@
+{
+  "title": "MSC部门工具导航",
+  "description": "物流部门常用工具和资源导航",
+  "items": [
+    {
+      "id": 1,
+      "name": "SCT",
+      "url": "https://sct.emdlz.com.cn/",
+      "description": "Service Control Tower，全链路E2E（End to End）一体化管理。从工厂成品产出，调拨，客户配送，多方参与（亿滋、三方仓库、三方承运商）的集成智能管理系统。",
+      "category": "Logistic",
+      "audienceDepartments": "MSC",
+      "audienceDetails": "MSC-Manufacturing-Outbound\nMSC-Logistic",
+      "permissionGuide": "向Logistics Digital Supervisor申请",
+      "icon": "🚚"
+    },
+    {
+      "id": 2,
+      "name": "SAP Log",
+      "url": "",
+      "description": "物流主要使用SAP的SD（Sales and Distribution）模块和MM（Material Management）模块里的功能。SAP的SD模块主要负责从客户下单、发货到收款的全过程管理，确保销售业务顺畅运行；而MM模块负责从采购申请、供应商管理、收货到库存控制的全流程，保障企业物料供应和库存准确，是企业运营中最基础、最关键的两个模块。",
+      "category": "Logistic",
+      "audienceDepartments": "MSC",
+      "audienceDetails": "MSC-Logistic",
+      "permissionGuide": "由Logistics Digital Supervisor指导申请",
+      "icon": "📦"
+    },
+    {
+      "id": 3,
+      "name": "CMS",
+      "url": "https://osfc-cms.emdlz.com.cn/",
+      "description": "Copacking Management System，OSFC（One-Stop Fulfillment Center）使用的翻包管理系统，管理整个翻包中心的日常运作，包括半品包材的入库，成品产出等。",
+      "category": "Logistic",
+      "audienceDepartments": "MSC",
+      "audienceDetails": "MSC-Logistic-OSFC",
+      "permissionGuide": "向Logistics Digital Supervisor申请",
+      "icon": "📋"
+    },
+    {
+      "id": 4,
+      "name": "SAP OTC（Order to Cash）",
+      "url": "https://mdlz.service-now.com/",
+      "description": "OTC是管理\"从客户下订单开始，直到公司收到货款\"全过程的模块集合。核心目标是高效、准确地完成销售并回笼资金。",
+      "category": "CSO",
+      "audienceDepartments": "MSC",
+      "audienceDetails": "Global SAP OTC 角色",
+      "permissionGuide": "",
+      "icon": "💰"
+    },
+    {
+      "id": 5,
+      "name": "Kunlun昆仑系统",
+      "url": "kunlun.emdlz.com.cn",
+      "description": "从订单到收款的全新一体化操作平台。\n1. 客户下单& 订单查询\n2. 配额设置&调整\n3. 主数据设置&调整\n4. 财务对账\n5. 订单处理&分配\n6. DN查询",
+      "category": "CSO",
+      "audienceDepartments": "MSC\nSales\nFinance",
+      "audienceDetails": "1. 客户下单& 订单查询---- 销售&供应链计划团队\n2. 配额设置&调整-----销售TPM团队\n3. 主数据设置& 调整---MDM团队\n4. 财务对账——— OTC BTC团队 & 销售 &财务\n5. 订单处理&分配——OTB OTB & Accenture  FO\n6. DN查询——Log Ops",
+      "permissionGuide": "如需申请权限请联系 APPL1.ChinaSupport@mdlz.com",
+      "icon": "🏔️"
+    },
+    {
+      "id": 6,
+      "name": "VIP Portal",
+      "url": "",
+      "description": "是一款专为经销商设计的自助式供应链协同微信小程序。该工具集成\n1. 订单状态查询\n2. 投诉建议\n3. KPI查询\n4. 财务账款查询",
+      "category": "CSO",
+      "audienceDepartments": "Sales\nMSC",
+      "audienceDetails": "Sales\nMSC",
+      "permissionGuide": "如需申请权限请联系 APPL1.ChinaSupport@mdlz.com",
+      "icon": "👑"
+    }
+  ]
+}
