@@ -8,135 +8,288 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
-        }
-        .tool-card {
-            transition: transform 0.2s, box-shadow 0.2s;
-            height: 100%;
-        }
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .tool-icon {
-            font-size: 2rem;
-            margin-right: 1rem;
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
         }
         
-        /* 顶部返回按钮样式 */
-        .top-back-button {
-            background-color: #6c757d;
-            color: white;
+        .header {
+            background-color: white;
+            border-bottom: 1px solid #d2d2d7;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .back-button {
+            background: none;
             border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            color: #0071e3;
+            font-size: 17px;
+            font-weight: 400;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            transition: all 0.2s;
         }
         
-        .top-back-button:hover {
-            background-color: #5a6268;
-            transform: scale(1.1);
+        .back-button:hover {
+            background-color: #f5f5f7;
         }
         
-        /* 底部返回按钮样式 */
-        .bottom-back-button {
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 20px;
-            transition: all 0.2s;
+        .back-button::before {
+            content: "←";
+            margin-right: 8px;
         }
         
-        .bottom-back-button:hover {
-            background-color: #5a6268;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .tool-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 24px 0 8px;
+            text-align: center;
+            color: #1d1d1f;
         }
         
-        /* 顶部信息栏样式 */
-        .top-header {
-            background-color: #f8f9fa;
+        .tool-subtitle {
+            font-size: 16px;
+            color: #86868b;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #d2d2d7;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .info-section {
+            margin-bottom: 24px;
+            padding: 16px;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .info-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #d2d2d7;
+        }
+        
+        .info-icon {
+            font-size: 20px;
+            margin-right: 12px;
+            color: #0071e3;
+        }
+        
+        .info-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            color: #1d1d1f;
+        }
+        
+        .info-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1d1d1f;
+        }
+        
+        .info-content p {
+            margin-bottom: 16px;
+        }
+        
+        .info-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
             padding: 8px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .info-row:not(:last-child) {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-label {
+            flex: 0 0 100px;
+            font-weight: 600;
+            color: #86868b;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-value {
+            flex: 1;
+            font-size: 16px;
+            min-width: 0;
+            color: #1d1d1f;
+        }
+        
+        .info-value a {
+            color: #0071e3;
+            text-decoration: none;
+        }
+        
+        .info-value a:hover {
+            text-decoration: underline;
+        }
+        
+        .badge-available {
+            background-color: #30d158;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .badge-category {
+            background-color: #0071e3;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .badge-department {
+            background-color: #ff9500;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #d2d2d7;
+            color: #1d1d1f;
+        }
+        
+        .alert {
+            border-radius: 12px;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .tool-overview {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .tool-icon-large {
+            font-size: 32px;
+            margin-right: 16px;
+            color: #0071e3;
+        }
+        
+        .tool-name-category {
+            flex: 1;
+        }
+        
+        .tool-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #1d1d1f;
+        }
+        
+        .tool-category-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .step-list {
+            padding-left: 20px;
+        }
+        
+        .step-list li {
+            margin-bottom: 8px;
+        }
+        
+        .important-note {
+            background-color: #fff4e5;
+            border-left: 4px solid #ff9500;
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+        
+        .contact-info {
+            background-color: #e5f1ff;
+            border-left: 4px solid #0071e3;
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .info-row {
+                flex-direction: column;
+            }
+            
+            .info-label {
+                margin-bottom: 4px;
+            }
+            
+            .tool-overview {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tool-icon-large {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 顶部信息栏 -->
-    <div class="top-header sticky-top">
+    <!-- 顶部导航栏 -->
+    <div class="header">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                    <button class="top-back-button" id="backButton" title="返回部门导航">
-                        <span>←</span>
-                    </button>
-                    <h5 class="mb-0">工具详情</h5>
-                </div>
+            <div class="d-flex align-items-center">
+                <button class="back-button" id="backButton">返回</button>
             </div>
         </div>
     </div>
     
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
-                        <li class="breadcrumb-item"><a href="./tools.html">部门导航</a></li>
-                        <li class="breadcrumb-item active" id="departmentBreadcrumb">部门信息</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
+    <div class="container py-4">
+        <div class="tool-title" id="pageTitle">工具信息</div>
+        <div class="tool-subtitle" id="pageDescription">工具详细信息</div>
         
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h1 class="display-4 mb-3" id="pageTitle">工具信息</h1>
-                <p class="lead" id="pageDescription">工具详细信息页面</p>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">部门信息</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>部门名称:</h6>
-                                <p id="departmentName">-</p>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <h6>工具信息:</h6>
-                                <div id="toolInfo">
-                                    <div class="d-flex justify-content-center">
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">加载中...</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="card">
+            <div class="card-body">
+                <div id="toolInfo">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">加载中...</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="row mt-4">
-            <div class="col-12 text-center">
-                <button class="btn bottom-back-button" id="bottomBackButton">
-                    <span>← 返回部门导航</span>
-                </button>
             </div>
         </div>
     </div>
@@ -191,24 +344,52 @@
                 
                 // 显示工具详细信息
                 document.getElementById('toolInfo').innerHTML = `
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>工具名称:</strong> ${tool.name}</p>
-                            <p><strong>工具分类:</strong> ${tool.category}</p>
-                            <p><strong>访问地址:</strong> ${tool.url ? `<a href="${tool.url}" target="_blank">${tool.url}</a>` : '无'}</p>
-                            <p><strong>状态:</strong> <span class="badge bg-success">可用</span></p>
+                    <div class="tool-overview">
+                        <div class="tool-icon-large">🔧</div>
+                        <div class="tool-name-category">
+                            <h2 class="tool-name">${tool.name}</h2>
+                            <div class="tool-category-tags">
+                                <span class="badge-category">${tool.category}</span>
+                                <span class="badge-available">可用</span>
+                                <span class="badge-department">${departmentKey.toUpperCase()}</span>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <p><strong>所属部门:</strong> ${departmentKey.toUpperCase()}</p>
-                            <p><strong>受众部门:</strong> ${tool.audienceDepartments || '未指定'}</p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <div class="info-header">
+                            <div class="info-icon">🔗</div>
+                            <h3 class="info-title">基本信息</h3>
                         </div>
-                        <div class="col-12 mt-3">
-                            <p><strong>功能介绍:</strong></p>
-                            <p>${tool.description}</p>
+                        <div class="info-content">
+                            <div class="info-row">
+                                <div class="info-label">访问地址</div>
+                                <div class="info-value">${tool.url ? `<a href="${tool.url}" target="_blank">${tool.url}</a>` : '无'}</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">受众部门</div>
+                                <div class="info-value">${tool.audienceDepartments || '未指定'}</div>
+                            </div>
                         </div>
-                        <div class="col-12 mt-3">
-                            <p><strong>权限申请指南:</strong></p>
-                            <p>${tool.permissionGuide || '无特殊要求'}</p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <div class="info-header">
+                            <div class="info-icon">📝</div>
+                            <h3 class="info-title">功能介绍</h3>
+                        </div>
+                        <div class="info-content">
+                            ${formatDescription(tool.description)}
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <div class="info-header">
+                            <div class="info-icon">🔒</div>
+                            <h3 class="info-title">权限申请指南</h3>
+                        </div>
+                        <div class="info-content">
+                            ${formatDescription(tool.permissionGuide || '无特殊要求')}
                         </div>
                     </div>
                 `;
@@ -224,6 +405,79 @@
                 `;
             }
         }
+        
+        // 格式化描述文本，将换行符转换为段落
+        function formatDescription(text) {
+            if (!text) return '<p>暂无信息</p>';
+            
+            // 处理列表项
+            if (text.includes('1.') || text.includes('2.') || text.includes('3.') || 
+                text.includes('•') || text.includes('-')) {
+                return formatListContent(text);
+            }
+            
+            // 处理重要信息和联系方式
+            let formattedText = text;
+            formattedText = formatImportantNotes(formattedText);
+            formattedText = formatContactInfo(formattedText);
+            
+            // 将文本按换行符分割，并为每个段落添加<p>标签
+            return formattedText.split('\n').map(paragraph => 
+                paragraph.trim() ? `<p>${paragraph.trim()}</p>` : ''
+            ).join('').trim() || '<p>暂无信息</p>';
+        }
+        
+        // 格式化列表内容
+        function formatListContent(text) {
+            const lines = text.split('\n');
+            let result = '';
+            let inList = false;
+            
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (!trimmedLine) {
+                    if (inList) {
+                        result += '</ul>';
+                        inList = false;
+                    }
+                    result += '<p></p>';
+                    continue;
+                }
+                
+                if (trimmedLine.match(/^[\d]+\.|^[•\-]/)) {
+                    // 这是列表项
+                    if (!inList) {
+                        result += '<ul class="step-list">';
+                        inList = true;
+                    }
+                    result += `<li class="mb-2">${trimmedLine}</li>`;
+                } else {
+                    // 这是普通段落
+                    if (inList) {
+                        result += '</ul>';
+                        inList = false;
+                    }
+                    result += `<p>${trimmedLine}</p>`;
+                }
+            }
+            
+            if (inList) {
+                result += '</ul>';
+            }
+            
+            return result;
+        }
+        
+        // 格式化重要信息
+        function formatImportantNotes(text) {
+            return text.replace(/(重要|注意|特别|必须|需要|应当):?/gi, '<div class="important-note">$1</div>');
+        }
+        
+        // 格式化联系方式
+        function formatContactInfo(text) {
+            return text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, 
+                '<div class="contact-info">联系邮箱: $1</div>');
+        }
 
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
@@ -234,7 +488,7 @@
             const departmentKey = sessionStorage.getItem('currentDepartment') || 'it';
             
             // 加载配置文件获取部门名称
-            loadJsonData('data/config.json').then(config => {
+            loadJsonData('../data/config.json').then(config => {
                 const departmentNames = {
                     'msc': 'MSC部门',
                     'fin': '财务部门',
@@ -251,17 +505,12 @@
                 const departmentName = departmentNames[departmentKey] || '未知部门';
                 
                 // 更新页面信息
-                document.getElementById('departmentBreadcrumb').textContent = departmentName;
-                document.getElementById('pageTitle').textContent = `${departmentName} - ${toolName}`;
-                document.getElementById('pageDescription').textContent = `您正在查看 ${departmentName} 的 ${toolName} 工具信息`;
-                document.getElementById('departmentName').textContent = departmentName;
+                document.getElementById('pageTitle').textContent = toolName;
+                document.getElementById('pageDescription').textContent = `来自 ${departmentName}`;
                 
                 // 为返回按钮添加点击事件
                 const backButtonUrl = `./tools.html?dept=${departmentKey}`;
                 document.getElementById('backButton').addEventListener('click', function() {
-                    window.location.href = backButtonUrl;
-                });
-                document.getElementById('bottomBackButton').addEventListener('click', function() {
                     window.location.href = backButtonUrl;
                 });
                 
@@ -279,17 +528,12 @@
                 const departmentName = departmentNames[departmentKey] || '未知部门';
                 
                 // 更新页面信息
-                document.getElementById('departmentBreadcrumb').textContent = departmentName;
-                document.getElementById('pageTitle').textContent = `${departmentName} - ${toolName}`;
-                document.getElementById('pageDescription').textContent = `您正在查看 ${departmentName} 的 ${toolName} 工具信息`;
-                document.getElementById('departmentName').textContent = departmentName;
+                document.getElementById('pageTitle').textContent = toolName;
+                document.getElementById('pageDescription').textContent = `来自 ${departmentName}`;
                 
                 // 为返回按钮添加点击事件
                 const backButtonUrl = `./tools.html?dept=${departmentKey}`;
                 document.getElementById('backButton').addEventListener('click', function() {
-                    window.location.href = backButtonUrl;
-                });
-                document.getElementById('bottomBackButton').addEventListener('click', function() {
                     window.location.href = backButtonUrl;
                 });
                 
