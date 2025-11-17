@@ -4,12 +4,11 @@
   "items": [
     {
       "id": 1,
-      "name": "TPM（Trade Planning Management）",
+      "name": "TPM (Trade Planning Management)",
       "url": "https://tpm.emdlz.com.cn/Index.html",
       "description": "全面促销费用投资管理平台，整合年度预算、Working-T档期、经销商返利及客户合同管理。一站式完成预算编制、费用审批、协议签订和效果核销，让促销投入全周期可视、可控、可追踪。",
       "category": "FIN",
-      "audienceDepartments": "Sales\nFinance",
-      "audienceDetails": "Sales\nCommercial Finance\nEC Finance",
+      "audienceDepartments": "销售，商业财务，电商财务",
       "permissionGuide": "在TPM系统自助申请权限并完成审批，可参考帮助文档《权限管理操作手册》，有关TPM的任何问题，联系China Support，邮箱：APPL1.ChinaSupport@mdlz.com",
       "icon": "📊"
     },
@@ -17,10 +16,9 @@
       "id": 2,
       "name": "Databank TPM Report",
       "url": "https://datavcluster.emdlz.com.cn/jssfplus/?file=/TPM/Public/TPMReports",
-      "description": "促销财务数据中台，自动汇总、清洗并生成\"毛利到净额（GTN）\"多维报告，一站式呈现销售额扣除促销、返利、折扣后的真实净利，为复盘与决策提供数字看板。",
+      "description": "促销财务数据中台，自动汇总、清洗并生成\"毛利到净额 (GTN)\"多维报告，一站式呈现销售额扣除促销、返利、折扣后的真实净利，为复盘与决策提供数字看板。",
       "category": "FIN",
-      "audienceDepartments": "Finance",
-      "audienceDetails": "Finance-Commercial\nFinance-EC",
+      "audienceDepartments": "商业财务，电商财务",
       "permissionGuide": "财务同事发起申请，提供工号，姓名，邮箱地址等信息给到China Support，邮箱：APPL1.ChinaSupport@mdlz.com",
       "icon": "📈"
     },
@@ -30,9 +28,8 @@
       "url": "https://smartinvestment.emdlz.com.cn/Index.html",
       "description": "采用PBI技术的新兴智能投资平台，集成\"宏观视角-事业部/渠道-城市-客户-投资\"多维仪表盘，打通业务与财务数据，一键洞察投资效率，优化决策。",
       "category": "FIN",
-      "audienceDepartments": "Sales\nFinance\nPeople team\nMarketing",
-      "audienceDetails": "CLT，Sales & Commercial Finance & Category Finance & HR &Marketing……",
-      "permissionGuide": "联系China Support (APPL1.ChinaSupport@mdlz.com) 获得最新版权限申请表，与BU Finance确认权限申请范围后获得直线经理和BU Finance审批，提交China Support后，系统报告负责人审批通过后即可开通。",
+      "audienceDepartments": "主要面向大中华区管理团队，包括销售、商业财务、品类财务、人力资源、市场等部门",
+      "permissionGuide": "联系APPL1.ChinaSupport@mdlz.com获得最新版权限申请表，与BU Finance确认权限申请范围后获得直线经理和BU Finance审批，提交China Support后，系统报告负责人审批通过后即可开通。",
       "icon": "💡"
     },
     {
@@ -41,9 +38,8 @@
       "url": "https://ea.emdlz.com.cn/local/ch/index.html",
       "description": "与客户在线签署协议并同步完成费用核销、合同归档的一体化平台。",
       "category": "FIN",
-      "audienceDepartments": "Sales\nFinance",
-      "audienceDetails": "Sales\nFinance-Commercial\nFinance-EC",
-      "permissionGuide": "销售入职之后会自动赋予EA系统的权限，三方员工开通需要联系Ben, Yue <Yue.Ben@mdlz.com>。",
+      "audienceDepartments": "销售，商业财务，电商财务",
+      "permissionGuide": "销售员工入职之后会自动赋予EA系统的权限，三方员工开通需要联系Ben,Yue <Yue.Ben@mdlz.com>。",
       "icon": "📝"
     },
     {
@@ -52,9 +48,8 @@
       "url": "https://us2.concursolutions.com/home.asp",
       "description": "整合\"差旅 + 费用\"一体化的功能系统，实现差旅申请、预订、报销、审批、合规检查全流程数字化。",
       "category": "FIN",
-      "audienceDepartments": "Sales\nMSC\nFinance\nPeople team\nMarketing",
-      "audienceDetails": "For all",
-      "permissionGuide": "账户：员工号@Mondelez，初始密码：Welcome；\n无公司电脑员工需联系部门助理获取模板《员工报销账号申请-中文表》进行操作。若对于报销有疑问，请联系您身边的\n财务团队同事，或者联系Concur管理客服，邮箱：Expense@mdlz.com",
+      "audienceDepartments": "所有亿滋正式员工",
+      "permissionGuide": "账户：员工号@Mondelez，初始密码：Welcome；无公司电脑员工需联系部门助理获取模板《员工报销账号申请-中文表》进行操作。若对于报销有疑问，请联系您身边的财务团队同事，或者联系Concur管理客服，邮箱：Expense@mdlz.com",
       "icon": "✈️"
     }
   ]
