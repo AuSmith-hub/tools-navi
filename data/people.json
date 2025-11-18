@@ -31,6 +31,26 @@
       "audienceDepartments": "所有亿滋正式员工",
       "permissionGuide": "One Portal用户名：若您拥有亿滋邮箱，请使用您的LAN ID登录；若您没有亿滋邮箱，请使用员工号(数字)登陆。One Portal密码：您的公司邮箱会收到One Portal初始密码(发件邮箱：sso01@emdlzcn.com)。如在登录过程中遇到问题，请联系热线4008105900或邮箱APPL1.ChinaSupport@mdlz.com寻求帮助。",
       "icon": "🚪"
+    },
+    {
+      "id": 4,
+      "name": "Jobs@MDLZ",
+      "url": "https://wd3.myworkday.com/mdlz/d/task/1422$133.htmld",
+      "description": "内部职位发布平台，支持员工查看全球范围内空缺职位，也供经理发布岗位。候选人资格等细节参考《员工推荐计划政策》及MDLZ Magnet推荐计划。",
+      "category": "People Team",
+      "audienceDepartments": "所有亿滋正式员工",
+      "permissionGuide": "登录名及密码：配备公司电脑的员工，登录名是公司邮箱，密码是开机密码；不配备公司电脑的员工，登录名是LAN-ID@MDLZ.com；密码是LAN-ID",
+      "icon": "🔍"
+    },
+    {
+      "id": 5,
+      "name": "WeCom Together 亿站通",
+      "url": "企业微信APP",
+      "description": "\"亿站通\"整合了多个亿滋全球和中国的人力资源信息和服务系统，致力于为亿滋中国员工提供一个方便、高效、友善的员工体验平台。员工可以通过企业微信，在全新的\"亿站通\"平台中一键登录新的员工自助服务模块，包括工资单查询、休假申请/审批、健康和福祉。我们还整合了全球员工中心和Workday的入口，更加方便员工进行登录操作。员工还可以在\"亿站通\"上找到多元包容平等，以及成长每一天学习资源等其他的板块。",
+      "category": "People Team",
+      "audienceDepartments": "所有亿滋正式员工",
+      "permissionGuide": "登录名及密码：配备公司电脑的员工，登录名是公司邮箱，密码是开机密码；不配备公司电脑的员工，登录名是LAN-ID@MDLZ.com；密码是LAN-ID 进入\"企业微信\"APP，注册成为\"亿滋企微\"成员 选择企业微信\"工作台\"模块-点击\" 亿站通WeCom Together\"进入页面",
+      "icon": "💬"
     }
   ]
 }

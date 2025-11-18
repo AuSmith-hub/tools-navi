@@ -21,6 +21,36 @@
       "audienceDepartments": "销售，市场",
       "permissionGuide": "系统部署在PowerBI上，权限统一配置，无需登录直接可用。如发现无权限，可申请 Step 1 - Line manager邮件审批，包含部门+所需权限 Step 2 - 将Line manager审批邮件转发给对应业务对接人 EC 对接人edward.yu@mdlz.com EC 以外对接人Peggy.du@mdlz.com",
       "icon": "🛒"
+    },
+    {
+      "id": 3,
+      "name": "China Content Hub",
+      "url": "https://contenthub.emdlz.com.cn/web/bi/stat/workbench",
+      "description": "一站式内容门户，实现内容储存、分发和生成的全链路能力。其中内容生成功能，通过人工智能自动产出文字、图片、social脚本等营销素材，与人工设计师共同生成素材。提升效率、降低成本。",
+      "category": "MKT",
+      "audienceDepartments": "市场，销售",
+      "permissionGuide": "基础权限基于工作岗位统一配置，根据系统邮件分享的账号和密码，即可登录。第一次登录后，应修改密码。如发现无权限，可申请：Step 1 - Line manager 邮件审批，包含部门+所需权限 Step 2 - 将Line manager审批邮件转发给对应业务对接人elaine.liu@mdlz.com",
+      "icon": "📄"
+    },
+    {
+      "id": 4,
+      "name": "CDP(Consumer Data Platform)",
+      "url": "",
+      "description": "整合亿滋消费者资产信息，并统一储存管理，打通全渠道数据构建完整用户视图，支撑个性化营销、复购转化与品类迭代的核心数据工具。",
+      "category": "MKT",
+      "audienceDepartments": "市场，电商",
+      "permissionGuide": "CDP在前端有PowerBI看板，权限统一配置，无需登录直接可用，如发现无权限，可申请：Step 1 - Line manager 邮件审批，包含部门+所需权限 Step 2 - 将Line manager审批邮件转发给对应业务对接人elaine.liu@mdlz.com",
+      "icon": "📊"
+    },
+    {
+      "id": 5,
+      "name": "Media Operation System",
+      "url": "",
+      "description": "媒体投放\"一站式工作台\"，覆盖洞察、规划、投放、追踪全链路，让预算分配、人群选择、下单采买和效果复盘都在一个系统里完成，每一分钱花得明白、效果看得见。",
+      "category": "MKT",
+      "audienceDepartments": "",
+      "permissionGuide": "",
+      "icon": "📺"
     }
   ]
 }
