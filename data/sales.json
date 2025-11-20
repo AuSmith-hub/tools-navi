@@ -5,7 +5,7 @@
     {
       "id": 1,
       "name": "SFA",
-      "url": "小程序，从'慧亿滋'进入",
+      "access_method": "小程序，从'慧亿滋'进入",
       "description": "销售自动化系统，通过SFA系统实现销售团队管理、终端门店运营、订单接受等销售流程数字化，核心价值在于提升销售效率、强化终端动销能力。",
       "category": "Sales",
       "audienceDepartments": "所有销售员工",
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "name": "iSmart",
-      "url": "https://www.emdlz.com.cn/OnePortal.aspx",
+      "access_method": "https://www.emdlz.com.cn/OnePortal.aspx",
       "description": "销售一站式报告平台 (涵盖SAP、鹰眼、黄金眼、SFA等数据)。",
       "category": "Sales",
       "audienceDepartments": "所有销售员工，经销商DOM/DSS/DSF，部分供应链、财务员、市场员工",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "慧眼",
-      "url": "https://salesdatahub.emdlz.com.cn/SFDashboard/ReportDispatcher?reportCode=DHBD_BI_DTRM_MAP_TOOL",
+      "access_method": "https://salesdatahub.emdlz.com.cn/SFDashboard/ReportDispatcher?reportCode=DHBD_BI_DTRM_MAP_TOOL",
       "description": "整合地理信息系统、商圈人流热力和消费画像数据的选址决策平台，评估门店开发潜力值，识别高潜力/空白门店，开拓生意疆土。",
       "category": "Sales",
       "audienceDepartments": "销售RTM，销售TMP，销售MXM及以上管理人员",
@@ -35,7 +35,7 @@
     {
       "id": 4,
       "name": "收货扫码系统",
-      "url": "",
+      "access_method": "",
       "description": "经销商客户关系管理系统，帮助经销商完成仓库收货、货品流转信息记录。",
       "category": "Sales",
       "audienceDepartments": "销售RTM，经销商",
@@ -45,7 +45,7 @@
     {
       "id": 5,
       "name": "亿起积",
-      "url": "",
+      "access_method": "",
       "description": "批发客户关系管理系统，通过周期性的营销活动和多元化的积分体系，针对性激励批发商进货，并搭建积分商城，帮助其核销积分。",
       "category": "Sales",
       "audienceDepartments": "销售RTM，批发",
@@ -55,7 +55,7 @@
     {
       "id": 6,
       "name": "亿店宝",
-      "url": "",
+      "access_method": "",
       "description": "小店店主客户关系管理系统，通过搭建扫码平台和任务平台，帮助监控小店货物流向，并利用小店店主的力量实现深度分销和陈列。",
       "category": "Sales",
       "audienceDepartments": "销售RTM，小店店主",
@@ -65,7 +65,7 @@
     {
       "id": 7,
       "name": "亿先锋",
-      "url": "",
+      "access_method": "",
       "description": "共享业代管理平台，通过搭建灵活的移动终端和复杂的财税架构，激励经销商自有业代帮助品牌完成深度分销和陈列任务，提升TDP和5P陈列。",
       "category": "Sales",
       "audienceDepartments": "销售RTM，经销商，经销商自有业代",
@@ -75,7 +75,7 @@
     {
       "id": 8,
       "name": "慧亿滋",
-      "url": "",
+      "access_method": "",
       "description": "销售手机端线上平台，涵盖销售部培训、销售信息推广、报告、奖金、SFA、完美大本营等功能。根据平台不同的模块会有对应的人员进行管理。",
       "category": "Sales",
       "audienceDepartments": "所有销售员工",
@@ -85,7 +85,7 @@
     {
       "id": 9,
       "name": "ATOM",
-      "url": "https://www.emdlz.com.cn/OnePortal.aspx",
+      "access_method": "https://www.emdlz.com.cn/OnePortal.aspx",
       "description": "销售部主数据平台，涵盖客户申请、门店创建及管理、经销商人员入离职及销售部各类主数据查询导出等功能。",
       "category": "Sales",
       "audienceDepartments": "所有销售员工",

@@ -140,6 +140,15 @@
             }
         }
         
+        // 部门名称映射
+        const departmentNameMap = {
+            'msc': 'MSC 供应链',
+            'fin': 'Finance 财务',
+            'mkt': 'Marketing 市场',
+            'people': 'People Team 人力资源',
+            'sales': 'Sales 销售'
+        };
+        
         // 加载部门数据并渲染
         async function loadAndRenderDepartments() {
             try {
@@ -164,9 +173,8 @@
                 // 为每个部门创建卡片
                 for (const [key, filePath] of Object.entries(config.departments)) {
                     // 获取部门信息
-                    const title = config.titles[key] || key;
+                    const title = departmentNameMap[key] || key;
                     const icon = config.icons[key] || '🔧';
-                    const description = config.descriptions[key] || '部门相关工具';
                     
                     // 创建部门卡片
                     const card = document.createElement('div');
@@ -174,9 +182,8 @@
                     card.innerHTML = `
                         <div class="department-header">
                             <div class="department-icon">${icon}</div>
-                            <h3 class="department-name">${title.replace('工具导航', '')}</h3>
+                            <h3 class="department-name">${title}</h3>
                         </div>
-                        <p class="department-description">${description}</p>
                     `;
                     
                     // 添加点击事件
@@ -186,18 +193,6 @@
                     
                     container.appendChild(card);
                 }
-                
-                // 添加"更多部门"卡片
-                const moreCard = document.createElement('div');
-                moreCard.className = 'department-card';
-                moreCard.innerHTML = `
-                    <div class="department-header">
-                        <div class="department-icon">🔧</div>
-                        <h3 class="department-name">更多部门</h3>
-                    </div>
-                    <p class="department-description">敬请期待更多部门工具</p>
-                `;
-                container.appendChild(moreCard);
             } catch (error) {
                 console.error('加载部门数据失败:', error);
                 document.getElementById('departmentsContainer').innerHTML = `

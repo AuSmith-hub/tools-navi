@@ -5,7 +5,7 @@
     {
       "id": 1,
       "name": "SCT (Service Control Tower)",
-      "url": "https://sct.emdlz.com.cn/",
+      "access_method": "https://sct.emdlz.com.cn/",
       "description": "Service Control Tower，全链路端到端一体化管理，从工厂成品产出、调拨、客户配送、多方参与(亿滋、三方仓库、三方承运商)的集成智能管理系统。",
       "category": "Logistic",
       "audienceDepartments": "供应链工厂成品，供应链物流，三方仓库，三方承运商",
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "name": "SAP Log",
-      "url": "",
+      "access_method": "",
       "description": "物流主要使用SAP的SD(Sales and Distribution)模块和MM(Material Management)模块里的功能。SD模块主要负责从客户下单、发货到收款的全过程管理，确保销售业务顺畅运行；而MM模块负责从采购申请、供应商管理、收货到库存控制的全流程，保障企业物料供应和库存准确，是企业运营中最基础、最关键的两个模块。",
       "category": "Logistic",
       "audienceDepartments": "供应链物流",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "CMS",
-      "url": "https://osfc-cms.emdlz.com.cn/",
+      "access_method": "https://osfc-cms.emdlz.com.cn/",
       "description": "Copacking Management System，OSFC(One-Stop Fulfillment Center)使用的翻包管理系统，管理整个翻包中心的日常运作，包括半品包材的入库，成品产出等。",
       "category": "Logistic",
       "audienceDepartments": "供应链 OSFC，翻包供应商",
@@ -35,7 +35,7 @@
     {
       "id": 4,
       "name": "SAP OTC (Order to Cash)",
-      "url": "https://mdlz.service-now.com/",
+      "access_method": "https://mdlz.service-now.com/",
       "description": "OTC (Order to Cash)是管理\"从客户下订单开始，直到公司收到货款\"全过程的模块集合。核心目标是高效、准确地完成销售并回笼资金。",
       "category": "CSO",
       "audienceDepartments": "Global SAP OTC",
@@ -45,7 +45,7 @@
     {
       "id": 5,
       "name": "Kunlun昆仑系统",
-      "url": "kunlun.emdlz.com.cn",
+      "access_method": "kunlun.emdlz.com.cn",
       "description": "从订单到收款的全新一体化操作平台，涵盖客户下单&订单查询、配额设置&调整、主数据设置&调整、财务对账、订单处理&分配、DN查询等功能。",
       "category": "CSO",
       "audienceDepartments": "客户下单&订单查询—经销商&销售&供应链计划；配额设置&调整—销售TPM；主数据设置&调整—MXM；财务对账—OTC BTC&销售&财务；订单处理&分配—OTB OTB & Accenture FO；DN查询—供应链物流",
@@ -55,7 +55,7 @@
     {
       "id": 6,
       "name": "VIP Portal",
-      "url": "",
+      "access_method": "",
       "description": "是一款专为经销商设计的自助式供应链协同微信小程序。该工具集成：订单状态查询；投诉建议；KPI查询；财务账款查询。",
       "category": "CSO",
       "audienceDepartments": "销售，供应链",
@@ -65,7 +65,7 @@
     {
       "id": 7,
       "name": "AI FCST",
-      "url": "",
+      "access_method": "",
       "description": "是一款基于机器学习算法的智能需求预测模型工具。它通过整合历史数据、节假日因素等，生成高精度月度周度的SKU-Location需求预测，为供应链计划、库存管理与生产计划提供数据驱动的决策支持。",
       "category": "Planning",
       "audienceDepartments": "供应链DemandPlanning",
@@ -75,7 +75,7 @@
     {
       "id": 8,
       "name": "Magic One",
-      "url": "https://eda-uat.emdlz.com.cn/Index.html#/pbi21v/report/workspaceId=9b6fb942-d2b5-4071-b0d5-ead8f35abac7&reportId=9fe087d2-6a83-4ad5-9593-3106823f50ac&pnp=1&ismagicOne=1",
+      "access_method": "https://eda-uat.emdlz.com.cn/Index.html#/pbi21v/report/workspaceId=9b6fb942-d2b5-4071-b0d5-ead8f35abac7&reportId=9fe087d2-6a83-4ad5-9593-3106823f50ac&pnp=1&ismagicOne=1",
       "description": "是一款每日焕新的电子看板，全方位整合供应量各环节关键数据。不仅涵盖 CFR、DIFC 等核心 KPI 与 KAI，还清晰呈现每日订单详情。同时，实时展示 SKU DIFC、库存状况及在途信息，让供应动态一目了然，高效辅助决策。",
       "category": "Planning",
       "audienceDepartments": "供应链，销售",
@@ -85,7 +85,7 @@
     {
       "id": 9,
       "name": "MPS (Master Production Schedule) 主生产计划/供应计划-Weekly",
-      "url": "",
+      "access_method": "",
       "description": "是一款基于运筹优化模型求解周排产计划，功能在于将企业需求和工厂能力结合，平衡客户服务水平，库存管理和成本为平衡的。产品，产线和周维度的排产计划，确保供应之下，协调资源，确保生产与市场需求精准对接，提升供应链响应速度。",
       "category": "Planning",
       "audienceDepartments": "供应链SupplyPlanning",
@@ -95,7 +95,7 @@
     {
       "id": 10,
       "name": "APS (Auto Production Scheduling)",
-      "url": "",
+      "access_method": "",
       "description": "是一款基于运筹优化模型求解班次排产计划，结合周排产分配到工厂产线和机台能力结合，最有效优化成本和转产，满足上游系统的需求。确保工厂生产运行。",
       "category": "Planning",
       "audienceDepartments": "供应链PPIC",
@@ -105,7 +105,7 @@
     {
       "id": 11,
       "name": "DPS",
-      "url": "",
+      "access_method": "",
       "description": "是一款用于执行调拨需求计划的运筹优化系统。结合库存，生产，需求和运输链路，工厂存储能力，分配SKU-RDC的调拨计划安排。同时最大优化运输成本，支持工厂直发到RDC的调拨计划。",
       "category": "Planning",
       "audienceDepartments": "供应链Planning，logops，manufacture",
@@ -115,7 +115,7 @@
     {
       "id": 12,
       "name": "Dynamic Boundary",
-      "url": "",
+      "access_method": "",
       "description": "是一款基于预测波动，供应反应时间等历史学习的库存优化系统。在满足既定客户满意度目标情况下，结合每个产品的历史预测波动和反应时间，制定出SKU-LOCATION的安全库存值，作为供应计划中策略指南。",
       "category": "Planning",
       "audienceDepartments": "供应链Planning",
@@ -125,7 +125,7 @@
     {
       "id": 13,
       "name": "SAP MTI (Manufacturing to Inventory)",
-      "url": "",
+      "access_method": "",
       "description": "指导和管理 \"从生产到仓库\" 全流程的系统工具。它通过对原料入库、库存扫描、原料消耗与反冲、生产执行到产品入库的完整环节进行实时追踪与系统化驱动，实现基于计划的高效生产与库存补充，确保成品稳定、准确地流入仓库。",
       "category": "Manufacture",
       "audienceDepartments": "SAP PPIC＆Cost controller",
@@ -135,7 +135,7 @@
     {
       "id": 14,
       "name": "WFM (Workforce Management)",
-      "url": "",
+      "access_method": "",
       "description": "是一套用于优化企业人力配置与成本控制的核心管理工具。它通过集成考勤跟踪、智能排班与精准工时核算三大功能，实现对员工工作周期的全面数字化管理，旨在提升劳动力效率、确保合规性并有效控制人工成本。",
       "category": "Manufacture",
       "audienceDepartments": "供应链POC/PL",
@@ -145,7 +145,7 @@
     {
       "id": 15,
       "name": "0 Carbon Park",
-      "url": "https://5star.emdlz.com.cn/",
+      "access_method": "https://5star.emdlz.com.cn/",
       "description": "0碳工厂智慧园区系统是一个集成了碳排放监测、访客管理、承包商管控与车辆调度于一体的综合性园区运营管理平台。该系统通过对园区内人员、活动与交通的全面数字化管理，实现碳足迹追踪与用能优化，助力园区达成精细化运营与零碳目标。",
       "category": "Manufacture",
       "audienceDepartments": "供应链HSE＆SCE",
@@ -155,7 +155,7 @@
     {
       "id": 16,
       "name": "e-Learning",
-      "url": "",
+      "access_method": "",
       "description": "是一站式在线学习与人才发展平台。它整合了线上课程、知识库共享、在线培训组织及技能认证等核心功能，为员工提供系统化的学习体验，提升技能水平。",
       "category": "Manufacture",
       "audienceDepartments": "供应链",
@@ -165,7 +165,7 @@
     {
       "id": 17,
       "name": "制造数字化管理系统",
-      "url": "",
+      "access_method": "",
       "description": "是面向制造环节的数字化管理工具,该系统通过标准化数据接入与SQDCSM指标(安全、质量、交付、成本、可持续性、员工士气)的集成录入,实现制造全流程的可视化管控,并借助电子看板推动标准化作业与实时绩效管理,为生产现场提供持续改进的数据基础。",
       "category": "Manufacture",
       "audienceDepartments": "供应链",

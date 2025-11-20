@@ -5,7 +5,7 @@
     {
       "id": 1,
       "name": "Social Management Platform",
-      "url": "https://socialmgt.emdlz.com.cn/login",
+      "access_method": "https://socialmgt.emdlz.com.cn/login",
       "description": "社媒管理平台，社媒营销活动策划/运营/追踪管理/风险管理，驱动社媒营销数据洞察与效度提升。",
       "category": "MKT",
       "audienceDepartments": "市场",
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "name": "EC Navigator",
-      "url": "https://app.powerbi.com/groups/me/apps/ba712e9d-03cd-4d82-a4f2-6858eeee7705/reports/5128cc9c-04c3-4717-b12f-0ed138e24a7d/e08d578d5a8d1c850c70?ctid=18a01ad8-9727-498a-a47d-17374c6fd9f7&experience=power-bi&language=en-US",
+      "access_method": "https://app.powerbi.com/groups/me/apps/ba712e9d-03cd-4d82-a4f2-6858eeee7705/reports/5128cc9c-04c3-4717-b12f-0ed138e24a7d/e08d578d5a8d1c850c70?ctid=18a01ad8-9727-498a-a47d-17374c6fd9f7&experience=power-bi&language=en-US",
       "description": "五大电商平台的业绩集成看板，可以进一步分析运营指标，如流量、转化、客单价、复购、履约等，快速定位短板并采取优化行动。",
       "category": "MKT",
       "audienceDepartments": "销售，市场",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "China Content Hub",
-      "url": "https://contenthub.emdlz.com.cn/web/bi/stat/workbench",
+      "access_method": "https://contenthub.emdlz.com.cn/web/bi/stat/workbench",
       "description": "一站式内容门户，实现内容储存、分发和生成的全链路能力。其中内容生成功能，通过人工智能自动产出文字、图片、social脚本等营销素材，与人工设计师共同生成素材。提升效率、降低成本。",
       "category": "MKT",
       "audienceDepartments": "市场，销售",
@@ -35,7 +35,7 @@
     {
       "id": 4,
       "name": "CDP(Consumer Data Platform)",
-      "url": "",
+      "access_method": "",
       "description": "整合亿滋消费者资产信息，并统一储存管理，打通全渠道数据构建完整用户视图，支撑个性化营销、复购转化与品类迭代的核心数据工具。",
       "category": "MKT",
       "audienceDepartments": "市场，电商",
@@ -45,7 +45,7 @@
     {
       "id": 5,
       "name": "Media Operation System",
-      "url": "",
+      "access_method": "",
       "description": "媒体投放\"一站式工作台\"，覆盖洞察、规划、投放、追踪全链路，让预算分配、人群选择、下单采买和效果复盘都在一个系统里完成，每一分钱花得明白、效果看得见。",
       "category": "MKT",
       "audienceDepartments": "",

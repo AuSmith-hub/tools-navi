@@ -7,7 +7,7 @@
     "sales": "data/sales.json"
   },
   "titles": {
-    "msc": "MSC部门工具导航",
+    "msc": "MSC供应链工具导航",
     "fin": "FIN部门工具导航",
     "mkt": "MKT部门工具导航",
     "people": "People Team部门工具导航",
@@ -19,12 +19,5 @@
     "mkt": "📱",
     "people": "👤",
     "sales": "💼"
-  },
-  "descriptions": {
-    "msc": "物流部门相关工具",
-    "fin": "财务部门相关工具",
-    "mkt": "市场部门相关工具",
-    "people": "人事部门相关工具",
-    "sales": "销售部门相关工具"
   }
 }

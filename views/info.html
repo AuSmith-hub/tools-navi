@@ -148,33 +148,6 @@
             text-decoration: underline;
         }
         
-        .badge-available {
-            background-color: #30d158;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .badge-category {
-            background-color: #0071e3;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .badge-department {
-            background-color: #ff9500;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
         .section-title {
             font-size: 18px;
             font-weight: 600;
@@ -214,12 +187,6 @@
             font-weight: 600;
             margin: 0 0 8px 0;
             color: #1d1d1f;
-        }
-        
-        .tool-category-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
         }
         
         .step-list {
@@ -279,7 +246,7 @@
     
     <div class="container py-4">
         <div class="tool-title" id="pageTitle">工具信息</div>
-        <div class="tool-subtitle" id="pageDescription">工具详细信息</div>
+        <div class="tool-subtitle" id="pageDescription"></div>
         
         <div class="card">
             <div class="card-body">
@@ -342,17 +309,23 @@
                     throw new Error('未找到指定的工具信息');
                 }
                 
+                // 构建基本信息部分
+                let basicInfoContent = '';
+                
+                // 添加受众部门行
+                basicInfoContent += `
+                    <div class="info-row">
+                        <div class="info-label">受众部门</div>
+                        <div class="info-value">${tool.audienceDepartments || '未指定'}</div>
+                    </div>
+                `;
+                
                 // 显示工具详细信息
                 document.getElementById('toolInfo').innerHTML = `
                     <div class="tool-overview">
                         <div class="tool-icon-large">🔧</div>
                         <div class="tool-name-category">
                             <h2 class="tool-name">${tool.name}</h2>
-                            <div class="tool-category-tags">
-                                <span class="badge-category">${tool.category}</span>
-                                <span class="badge-available">可用</span>
-                                <span class="badge-department">${departmentKey.toUpperCase()}</span>
-                            </div>
                         </div>
                     </div>
                     
@@ -362,16 +335,23 @@
                             <h3 class="info-title">基本信息</h3>
                         </div>
                         <div class="info-content">
+                            ${basicInfoContent}
+                        </div>
+                    </div>
+                    
+                    ${tool.access_method ? `
+                    <div class="info-section">
+                        <div class="info-header">
+                            <div class="info-icon">🌐</div>
+                            <h3 class="info-title">访问指南</h3>
+                        </div>
+                        <div class="info-content">
                             <div class="info-row">
-                                <div class="info-label">访问地址</div>
-                                <div class="info-value">${tool.url ? `<a href="${tool.url}" target="_blank">${tool.url}</a>` : '无'}</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">受众部门</div>
-                                <div class="info-value">${tool.audienceDepartments || '未指定'}</div>
+                                <div class="info-value">${formatDescriptionWithLineBreaks(tool.access_method)}</div>
                             </div>
                         </div>
                     </div>
+                    ` : ''}
                     
                     <div class="info-section">
                         <div class="info-header">
@@ -389,7 +369,7 @@
                             <h3 class="info-title">权限申请指南</h3>
                         </div>
                         <div class="info-content">
-                            ${formatDescription(tool.permissionGuide || '无特殊要求')}
+                            ${formatDescriptionWithLineBreaks(tool.permissionGuide || '无特殊要求')}
                         </div>
                     </div>
                 `;
@@ -410,73 +390,59 @@
         function formatDescription(text) {
             if (!text) return '<p>暂无信息</p>';
             
-            // 处理列表项
-            if (text.includes('1.') || text.includes('2.') || text.includes('3.') || 
-                text.includes('•') || text.includes('-')) {
-                return formatListContent(text);
+            // 只处理超链接，不添加其他格式
+            return text.split('\n').map(paragraph => 
+                paragraph.trim() ? `<p>${formatUrlAsLink(paragraph.trim())}</p>` : ''
+            ).join('').trim() || '<p>暂无信息</p>';
+        }
+        
+        // 格式化描述文本，保留换行符
+        function formatDescriptionWithLineBreaks(text) {
+            if (!text) return '<p>暂无信息</p>';
+            
+            // 特殊处理：对于包含换行符的文本，直接按换行符分割并保留原始格式
+            if (text.includes('\n')) {
+                return text.split('\n').map(paragraph => 
+                    `<p>${formatUrlAsLink(paragraph)}</p>`
+                ).join('');
             }
             
-            // 处理重要信息和联系方式
-            let formattedText = text;
-            formattedText = formatImportantNotes(formattedText);
-            formattedText = formatContactInfo(formattedText);
-            
-            // 将文本按换行符分割，并为每个段落添加<p>标签
-            return formattedText.split('\n').map(paragraph => 
-                paragraph.trim() ? `<p>${paragraph.trim()}</p>` : ''
+            // 只处理超链接，不添加其他格式
+            return text.split('\n').map(paragraph => 
+                paragraph.trim() ? `<p>${formatUrlAsLink(paragraph.trim())}</p>` : '<p></p>'
             ).join('').trim() || '<p>暂无信息</p>';
         }
         
         // 格式化列表内容
         function formatListContent(text) {
-            const lines = text.split('\n');
-            let result = '';
-            let inList = false;
-            
-            for (const line of lines) {
-                const trimmedLine = line.trim();
-                if (!trimmedLine) {
-                    if (inList) {
-                        result += '</ul>';
-                        inList = false;
-                    }
-                    result += '<p></p>';
-                    continue;
-                }
-                
-                if (trimmedLine.match(/^[\d]+\.|^[•\-]/)) {
-                    // 这是列表项
-                    if (!inList) {
-                        result += '<ul class="step-list">';
-                        inList = true;
-                    }
-                    result += `<li class="mb-2">${trimmedLine}</li>`;
-                } else {
-                    // 这是普通段落
-                    if (inList) {
-                        result += '</ul>';
-                        inList = false;
-                    }
-                    result += `<p>${trimmedLine}</p>`;
-                }
-            }
-            
-            if (inList) {
-                result += '</ul>';
-            }
-            
-            return result;
+            // 不处理列表格式，直接返回原文本
+            return text;
         }
         
         // 格式化重要信息
         function formatImportantNotes(text) {
-            return text.replace(/(重要|注意|特别|必须|需要|应当):?/gi, '<div class="important-note">$1</div>');
+            return text;
         }
         
         // 格式化联系方式
         function formatContactInfo(text) {
-            return text.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, 
-                '<div class="contact-info">联系邮箱: $1</div>');
+            return text;
+        }
+        
+        // 格式化URL为链接
+        function formatUrlAsLink(url) {
+            if (!url) return '';
+            
+            // 检查是否包含http或https链接
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            if (urlRegex.test(url)) {
+                // 重置正则表达式的 lastIndex 属性
+                urlRegex.lastIndex = 0;
+                return url.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
+            }
+            
+            // 如果没有http链接，直接返回原文本
+            return url;
         }
 
         // 页面加载完成后初始化
@@ -487,59 +453,18 @@
             // 从sessionStorage获取部门key，如果没有则默认为it
             const departmentKey = sessionStorage.getItem('currentDepartment') || 'it';
             
-            // 加载配置文件获取部门名称
-            loadJsonData('../data/config.json').then(config => {
-                const departmentNames = {
-                    'msc': 'MSC部门',
-                    'fin': '财务部门',
-                    'mkt': '市场部门',
-                    'people': '人事部门',
-                    'sales': '销售部门'
-                };
-                
-                // 如果配置文件中有部门名称映射，则使用配置文件中的
-                if (config.titles && config.titles[departmentKey]) {
-                    departmentNames[departmentKey] = config.titles[departmentKey].replace('工具导航', '');
-                }
-                
-                const departmentName = departmentNames[departmentKey] || '未知部门';
-                
-                // 更新页面信息
-                document.getElementById('pageTitle').textContent = toolName;
-                document.getElementById('pageDescription').textContent = `来自 ${departmentName}`;
-                
-                // 为返回按钮添加点击事件
-                const backButtonUrl = `./tools.html?dept=${departmentKey}`;
-                document.getElementById('backButton').addEventListener('click', function() {
-                    window.location.href = backButtonUrl;
-                });
-                
-                // 加载工具详细信息
-                loadToolDetails(departmentKey, toolName);
-            }).catch(error => {
-                console.error('加载配置文件失败:', error);
-                // 使用默认值
-                const departmentNames = {
-                    'msc': 'MSC部门',
-                    'fin': 'FIN部门',
-                    'mkt': 'MKT部门',
-                    'people': 'People Team部门'
-                };
-                const departmentName = departmentNames[departmentKey] || '未知部门';
-                
-                // 更新页面信息
-                document.getElementById('pageTitle').textContent = toolName;
-                document.getElementById('pageDescription').textContent = `来自 ${departmentName}`;
-                
-                // 为返回按钮添加点击事件
-                const backButtonUrl = `./tools.html?dept=${departmentKey}`;
-                document.getElementById('backButton').addEventListener('click', function() {
-                    window.location.href = backButtonUrl;
-                });
-                
-                // 加载工具详细信息
-                loadToolDetails(departmentKey, toolName);
+            // 更新页面信息
+            document.getElementById('pageTitle').textContent = toolName;
+            document.getElementById('pageDescription').textContent = '';
+            
+            // 为返回按钮添加点击事件
+            const backButtonUrl = `./tools.html?dept=${departmentKey}`;
+            document.getElementById('backButton').addEventListener('click', function() {
+                window.location.href = backButtonUrl;
             });
+            
+            // 加载工具详细信息
+            loadToolDetails(departmentKey, toolName);
         });
     </script>
 </body>

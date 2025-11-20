@@ -5,7 +5,7 @@
     {
       "id": 1,
       "name": "TPM (Trade Planning Management)",
-      "url": "https://tpm.emdlz.com.cn/Index.html",
+      "access_method": "https://tpm.emdlz.com.cn/Index.html",
       "description": "全面促销费用投资管理平台，整合年度预算、Working-T档期、经销商返利及客户合同管理。一站式完成预算编制、费用审批、协议签订和效果核销，让促销投入全周期可视、可控、可追踪。",
       "category": "FIN",
       "audienceDepartments": "销售，商业财务，电商财务",
@@ -15,7 +15,7 @@
     {
       "id": 2,
       "name": "Databank TPM Report",
-      "url": "https://datavcluster.emdlz.com.cn/jssfplus/?file=/TPM/Public/TPMReports",
+      "access_method": "https://datavcluster.emdlz.com.cn/jssfplus/?file=/TPM/Public/TPMReports",
       "description": "促销财务数据中台，自动汇总、清洗并生成\"毛利到净额 (GTN)\"多维报告，一站式呈现销售额扣除促销、返利、折扣后的真实净利，为复盘与决策提供数字看板。",
       "category": "FIN",
       "audienceDepartments": "商业财务，电商财务",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "Smart Investment",
-      "url": "https://smartinvestment.emdlz.com.cn/Index.html",
+      "access_method": "https://smartinvestment.emdlz.com.cn/Index.html",
       "description": "采用PBI技术的新兴智能投资平台，集成\"宏观视角-事业部/渠道-城市-客户-投资\"多维仪表盘，打通业务与财务数据，一键洞察投资效率，优化决策。",
       "category": "FIN",
       "audienceDepartments": "主要面向大中华区管理团队，包括销售、商业财务、品类财务、人力资源、市场等部门",
@@ -35,7 +35,7 @@
     {
       "id": 4,
       "name": "E-Agreement",
-      "url": "https://ea.emdlz.com.cn/local/ch/index.html",
+      "access_method": "https://ea.emdlz.com.cn/local/ch/index.html",
       "description": "与客户在线签署协议并同步完成费用核销、合同归档的一体化平台。",
       "category": "FIN",
       "audienceDepartments": "销售，商业财务，电商财务",
@@ -45,7 +45,7 @@
     {
       "id": 5,
       "name": "Concur报销系统",
-      "url": "https://us2.concursolutions.com/home.asp",
+      "access_method": "https://us2.concursolutions.com/home.asp",
       "description": "整合\"差旅 + 费用\"一体化的功能系统，实现差旅申请、预订、报销、审批、合规检查全流程数字化。",
       "category": "FIN",
       "audienceDepartments": "所有亿滋正式员工",
