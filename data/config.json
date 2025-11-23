@@ -1,10 +1,10 @@
 {
   "departments": {
-    "msc": "data/msc.json",
-    "fin": "data/fin.json",
     "mkt": "data/mkt.json",
-    "people": "data/people.json",
-    "sales": "data/sales.json"
+    "msc": "data/msc.json",
+    "sales": "data/sales.json",
+    "fin": "data/fin.json",
+    "people": "data/people.json"
   },
   "titles": {
     "msc": "MSC供应链工具导航",
