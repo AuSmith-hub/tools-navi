@@ -312,13 +312,13 @@
                 // 构建基本信息部分
                 let basicInfoContent = '';
                 
-                // 添加受众部门行
-                basicInfoContent += `
+                // 添加受众部门行，如果没有则不显示，其他都符合这个要求
+                basicInfoContent += tool.audienceDepartments? `
                     <div class="info-row">
                         <div class="info-label">受众部门</div>
-                        <div class="info-value">${tool.audienceDepartments || '未指定'}</div>
+                        <div class="info-value">${tool.audienceDepartments}</div>
                     </div>
-                `;
+                `: '';
                 
                 // 显示工具详细信息
                 document.getElementById('toolInfo').innerHTML = `
@@ -343,7 +343,7 @@
                     <div class="info-section">
                         <div class="info-header">
                             <div class="info-icon">🌐</div>
-                            <h3 class="info-title">访问指南</h3>
+                            <h3 class="info-title">访问指导</h3>
                         </div>
                         <div class="info-content">
                             <div class="info-row">
@@ -353,6 +353,7 @@
                     </div>
                     ` : ''}
                     
+                    ${tool.contactInfo ? `
                     <div class="info-section">
                         <div class="info-header">
                             <div class="info-icon">📝</div>
@@ -362,16 +363,19 @@
                             ${formatDescription(tool.description)}
                         </div>
                     </div>
+                    ` : ''}
                     
+                    ${tool.permissionGuide ? `
                     <div class="info-section">
                         <div class="info-header">
                             <div class="info-icon">🔒</div>
-                            <h3 class="info-title">权限申请指南</h3>
+                            <h3 class="info-title">权限申请指导</h3>
                         </div>
                         <div class="info-content">
                             ${formatDescriptionWithLineBreaks(tool.permissionGuide || '无特殊要求')}
                         </div>
                     </div>
+                    ` : ''}
                 `;
             } catch (error) {
                 console.error('加载工具详细信息失败:', error);
